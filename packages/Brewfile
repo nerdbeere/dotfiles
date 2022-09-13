@@ -49,4 +49,4 @@ brew 'postgresql@14'
 brew 'tig'
 brew 'tldr'
 
-# mas 'Amphetamine', id: 937984704
+mas 'ToothFairy', id: 1191449274
