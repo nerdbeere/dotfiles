@@ -5,6 +5,8 @@
 .hs
 .js
 .ts
+.tsx
+.jsx
 .py
 .sh
 .fish

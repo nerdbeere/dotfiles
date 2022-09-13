@@ -179,3 +179,6 @@ hs_err_pid*
 *.su
 *.idb
 *.pdb
+
+# we really don't want to commit
+node_modules

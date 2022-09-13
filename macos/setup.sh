@@ -26,13 +26,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "rmbp"
-sudo scutil --set HostName "rmbp"
-sudo scutil --set LocalHostName "rmbp"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rmbp"
+# sudo scutil --set ComputerName "rmbp"
+# sudo scutil --set HostName "rmbp"
+# sudo scutil --set LocalHostName "rmbp"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rmbp"
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+# sudo nvram SystemAudioVolume=" "
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
 # defaults write com.apple.universalaccess reduceTransparency -bool true
@@ -148,7 +148,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Enable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -173,8 +173,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl" "tr"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+defaults write NSGlobalDomain AppleLanguages -array "de" "en"
+defaults write NSGlobalDomain AppleLocale -string "de_DE@currency=EUR"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
@@ -202,7 +202,7 @@ sudo pmset -a autorestart 1
 sudo systemsetup -setrestartfreeze on
 
 # Sleep the display after 15 minutes
-# sudo pmset -a displaysleep 15
+sudo pmset -a displaysleep 15
 
 # Disable machine sleep while charging
 # sudo pmset -c sleep 0
@@ -238,7 +238,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to Google Drive
-defaults write com.apple.screencapture location -string "${HOME}/Google Drive/screenshots"
+# defaults write com.apple.screencapture location -string "${HOME}/Google Drive/screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -251,7 +251,7 @@ defaults write com.apple.screencapture disable-shadow -bool false
 defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
 # Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+# sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
 ###############################################################################
 # Finder                                                                      #
@@ -358,8 +358,8 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 sudo chflags nohidden /Volumes
 
 # Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
+# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+# [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
@@ -464,9 +464,9 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → No op
 defaults write com.apple.dock wvous-tr-corner   -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → No op
-defaults write com.apple.dock wvous-bl-corner   -int 0
-defaults write com.apple.dock wvous-bl-modifier -int 0
+# Bottom left screen corner → Start Screensaver
+defaults write com.apple.dock wvous-bl-corner   -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 5
 # Bottom right screen corner → No op
 defaults write com.apple.dock wvous-br-corner   -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
@@ -601,31 +601,31 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Transmission.app                                                            #
 ###############################################################################
 # Use `~/Downloads` to store completed downloads
-defaults write org.m0k.transmission DownloadLocationConstant -bool true
+#defaults write org.m0k.transmission DownloadLocationConstant -bool true
 
 # Don’t prompt for confirmation before downloading
-defaults write org.m0k.transmission DownloadAsk -bool false
-defaults write org.m0k.transmission MagnetOpenAsk -bool false
+#defaults write org.m0k.transmission DownloadAsk -bool false
+#defaults write org.m0k.transmission MagnetOpenAsk -bool false
 
 # Don’t prompt for confirmation before removing non-downloading active transfers
-defaults write org.m0k.transmission CheckRemoveDownloading -bool true
+#defaults write org.m0k.transmission CheckRemoveDownloading -bool true
 
 # Trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+#defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 
 # Hide the donate message
-defaults write org.m0k.transmission WarningDonate -bool false
+#defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
-defaults write org.m0k.transmission WarningLegal -bool false
+#defaults write org.m0k.transmission WarningLegal -bool false
 
 # IP block list.
 # Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-defaults write org.m0k.transmission BlocklistNew -bool true
-defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
+#defaults write org.m0k.transmission BlocklistNew -bool true
+#defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+#defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 # Randomize port on launch
-defaults write org.m0k.transmission RandomPort -bool true
+#defaults write org.m0k.transmission RandomPort -bool true
 
 ###############################################################################
 # Kill affected applications                                                  #

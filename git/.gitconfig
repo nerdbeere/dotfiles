@@ -1,16 +1,18 @@
 [user]
-	name = Rosco Kalis
-	email = roscokalis@gmail.com
+	name = Tobias von Klipstein
+	email = tobias@klpstn.com
 [core]
-	excludesfile = /Users/rosco/.gitignore_global
+	excludesfile = /Users/kli0002t/.gitignore_global
 	editor = /usr/bin/vim
 	ignorecase = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[diff]
+    tool = vscode
+[difftool "vscode"]
+  	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  	tool = vscode
+[mergetool "vscode"]
+  	cmd = code --wait $MERGED
 [push]
 	default = current
 [alias]
