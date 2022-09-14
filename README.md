@@ -19,8 +19,8 @@ For more information about dotfiles, I wrote these articles on my blog:
   ```
 4. Run the `bootstrap.sh` script
     1. Alternatively, only run the `setup.sh` scripts in specific subfolders if you don't need everything
-5. (Optional) Point your Alfred preference sync to a backed up folder
-6. Login to applications, enter license keys, set preferences
+5. Login to applications, enter license keys, set preferences (open Karabiner-Elements.app & hammerspoon.app in order to give proper permissions for keyboard bindings)
+6. Reboot
 
 ## Customisation
 I strongly encourage you to play around with the configurations, and add or remove features.
@@ -36,7 +36,7 @@ If you would like to use these dotfiles for yourself, I'd recommend changing at 
 This folder is a collection of the programs and utilities I use frequently. These lists can easily be amended to your liking.
 
 #### Repos
-This folder is a collection of my own repos, some of which are even private. The existing lists can easily be edited or replaced by custom lists.
+This folder is a collection of my own repos, some of which are even private. The existing lists can easily be edited or replaced by custom lists. Repos will be checked out to `~/repos/FILENAME/REPOSITORY-NAME`.
 
 ## Contents
 ### Root (/)
@@ -57,8 +57,10 @@ This folder is a collection of my own repos, some of which are even private. The
 * config.fish - Global fish configuration (.fishrc)
 * fishfile - List of `fisher` plugins
 * completions/
+  * fisher.fish - Simplifies installing further fish modules
   * repo.fish - Contains all repos as completions for the `repo` command
   * repodir.fish - Contains all repos as completions for the `repodir` command
+  * nvm.fish - Completions for nvm (node version manager) command
 * functions/
   * abbrex.fish - Utility for expanding abbreviations in fish-scripts
   * clear.fish - Clears the screen and shows fish_greeting
@@ -70,6 +72,7 @@ This folder is a collection of my own repos, some of which are even private. The
   * ls.fish - Calling ls with parameter --color=auto
   * manp.fish - Open a man page in Preview
   * mvnpurge.fish - Purge local mvn repository
+  * nvm.fish - The nvm (node version manager) command for fish
   * pubkey.fish - Copies the SSH public key to the clipboard
   * repo.fish - Finds a repository in `~/repos` and jumps to it
   * repodir.fish - Finds a repository in `~/repos` and prints its path
@@ -113,6 +116,5 @@ This folder is a collection of my own repos, some of which are even private. The
 * setup.sh - Symlinks all vim files to `~/`
 * .vimrc - Basic Vim configuration
 
-### Visual Studio Code (vscode/)
-* setup.sh - Symlinks the settings.json file to `~/Library/Application Support/Code/User`
-* settings.json - Contains user settings for Visual Studio Code
+### Visual Studio Code
+* Settings synched via GitHub
