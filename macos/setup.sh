@@ -205,7 +205,7 @@ sudo systemsetup -setrestartfreeze on
 sudo pmset -a displaysleep 15
 
 # Disable machine sleep while charging
-# sudo pmset -c sleep 0
+sudo pmset -c sleep 0
 
 # Set machine sleep to 5 minutes on battery
 # sudo pmset -b sleep 5
@@ -396,7 +396,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock persistent-apps -array
 
 # Show only open applications in the Dock
-# defaults write com.apple.dock static-only -bool true
+defaults write com.apple.dock static-only -bool true
 
 # Animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool true
@@ -498,7 +498,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ###############################################################################
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups (broken on Apple Silicon)
 # hash tmutil &> /dev/null && sudo tmutil disablelocal

@@ -1,8 +1,8 @@
 [user]
-	name = Tobias von Klipstein
-	email = tobias@klpstn.com
+	name = Julian Hollmann
+	email = julian.hollmann@gmail.com
 [core]
-	excludesfile = /Users/kli0002t/.gitignore_global
+	excludesfile = /Users/hol0008j/.gitignore_global
 	editor = /usr/bin/vim
 	ignorecase = false
 [diff]
